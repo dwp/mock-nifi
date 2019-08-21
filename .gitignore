@@ -20,8 +20,6 @@ build/
 
 .mypy_cache
 
-.mypy_cache
-
 ### STS ###
 .apt_generated
 .classpath
@@ -50,5 +48,3 @@ out/
 venv/
 logs/
 node_modules/
-*.jks
-*.pem
