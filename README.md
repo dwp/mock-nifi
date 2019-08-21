@@ -2,17 +2,17 @@
 
 An https endpoint to which data can be posted.
 
-Intended to be a bit like the NiFI endpoint which will be the eventual
-destination of the dataworks nightly snapshot. Instead of receiveing the
-snapshot and writng it to HDFS, mock-nifi writes it to the local filesystem
+Intended to be a bit like the NiFi endpoint which will be the eventual
+destination of the dataworks nightly snapshot. Instead of receiving the
+snapshot and writing it to HDFS, mock-nifi writes it to the local filesystem
 where it is available for inspection.
 
 ## Running locally (on the command line or in an IDE)
 
-Connections are mutuallly authenticated over TLS so a keystore and truststore
+Connections are mutually authenticated over TLS so a keystore and truststore
 are needed.  To generate these, checkout the ```data-key-service``` repository,
 and in the resources sub-directory of this there is a script
-```generate-developer-certs.sh```  .  Run this and then copy the files
+```generate-developer-certs.sh```.  Run this and then copy the files
 ```keystore.jks``` and ```truststore.jks``` to  the resources sub-directory of
 this project. These files should also be made available to any client that
 wishes to use mock-nifi (e.g. an instance of ```snapshot-sender``` running on
@@ -26,9 +26,9 @@ Once the keystores are in place the app can be run from the command line thus:
 
 ## Accessing from the command line
 
-Te service can be accessed using curl. The key and certificate from out of the
+The service can be accessed using curl. The key and certificate from out of the
 keystore need to be available to curl. These can be fetched out of the keystore
-using utilities in ```data-key-service``. To do this go to the ```resources```
+using utilities in ```data-key-service```. To do this go to the ```resources```
 sub-directory of data-key-service and then ...
 
 ``` bash
