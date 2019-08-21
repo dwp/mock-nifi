@@ -1,0 +1,54 @@
+### local ###
+src/main/python/environment/
+scripts/environment/
+__pycache__
+classes/
+data/
+ephemera/
+rad/
+*.jks
+*.key
+*.crt
+*.pem
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+.DS_Store
+
+.mypy_cache
+
+.mypy_cache
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+venv/
+logs/
+node_modules/
+*.jks
+*.pem
