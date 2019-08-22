@@ -21,14 +21,14 @@ the command line).
 Once the keystores are in place the app can be run from the command line thus:
 
 ``` bash
-./gradlew bootRun
+SPRING_CONFIG_LOCATION=resources/application.properties ./gradlew bootRun
 ```
 
 ## Accessing from the command line
 
 Te service can be accessed using curl. The key and certificate from out of the
 keystore need to be available to curl. These can be fetched out of the keystore
-using utilities in ```data-key-service``. To do this go to the ```resources```
+using utilities in ```data-key-service```. To do this go to the ```resources```
 sub-directory of data-key-service and then ...
 
 ``` bash
