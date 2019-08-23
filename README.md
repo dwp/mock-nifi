@@ -21,7 +21,7 @@ the command line).
 Once the keystores are in place the app can be run from the command line thus:
 
 ``` bash
-./gradlew bootRun
+SPRING_CONFIG_LOCATION=resources/application.properties ./gradlew bootRun
 ```
 
 ## Accessing from the command line
