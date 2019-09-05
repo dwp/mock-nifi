@@ -9,10 +9,10 @@ import java.io.*
 @RestController
 class SnapshotController {
 
-    @PostMapping("/collection")
+    @PostMapping("/collections")
     fun collection(dataStream: InputStream,
-                   @RequestHeader("Filename") fileName: String,
-                   @RequestHeader("Collection") collection: String): String {
+                   @RequestHeader("filename") fileName: String,
+                   @RequestHeader("collection") collection: String): String {
 
         val parentDirectory = File(outputDirectory, collection)
         makeParent(parentDirectory)
