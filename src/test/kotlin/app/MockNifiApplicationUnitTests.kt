@@ -24,7 +24,7 @@ class MockNifiApplicationUnitTests {
     @Autowired
     private lateinit var controller: SnapshotController
 
-    val folder = "/my/folder/"
+    val folder = "/my/folder"
     val collection = "db.aaa.bbbb"
     val filename = "filename.txt.zipped.enc"
     val expectedFinalDestination = "$folder/$collection/$filename"
