@@ -9,7 +9,7 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 @RestController
-class SnapshotController(var writer: SnapshotFileWriter) {
+class SnapshotController(var writer: ISnapshotFileWriter) {
 
     @PostMapping("/collections")
     fun collection(dataStream: InputStream,
@@ -19,7 +19,6 @@ class SnapshotController(var writer: SnapshotFileWriter) {
         val parentDirectory = File(outputDirectory, collection)
         makeParent(parentDirectory)
         val outputFile = File(parentDirectory, fileName)
-
         logger.info("Sending file '$fileName' with collection '$collection' to '$outputFile'")
 
         writer.writeFile(dataStream, outputFile)

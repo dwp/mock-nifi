@@ -1,5 +1,6 @@
 package app
 
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.ArgumentMatchers
@@ -13,6 +14,9 @@ import org.springframework.test.context.TestPropertySource
 import org.springframework.test.context.junit4.SpringRunner
 import java.io.File
 import java.io.InputStream
+import org.mockito.ArgumentCaptor
+
+
 
 
 @RunWith(SpringRunner::class)
@@ -24,18 +28,24 @@ class MockNifiApplicationUnitTests {
 
     @Autowired
     private lateinit var controller: SnapshotController
-	private val mockFileWriter: SnapshotFileWriter = mock(SnapshotFileWriter::class.java)
-	private val mockInputStream: InputStream = mock(InputStream::class.java)
 
     @Test
     fun controller_will_write_to_file_once_per_file() {
+		val mockFileWriter: ISnapshotFileWriter = mock(ISnapshotFileWriter::class.java)
+		val mockInputStream: InputStream = mock(InputStream::class.java)
 
         controller.writer = mockFileWriter
+        val result = controller.collection(mockInputStream, "fileName.txt.bz2.enc", "db.aaa.bbbb")
+        assertEquals(result, "/data/output/db.aaa.bbbb/fileName.txt.bz2.enc\n")
 
-        controller.collection(mockInputStream, "yourFileName.txt.bz2.enc", "yourCollection.is.this")
+		val fileArgument = ArgumentCaptor.forClass(File::class.java)
 
         verify(mockFileWriter, times(1))
-                .writeFile(same(mockInputStream), isA(File::class.java))
+                .writeFile(
+                        same<InputStream>(mockInputStream),
+						fileArgument.capture())
+
+		assertEquals("/data/output/db.aaa.bbbb/fileName.txt.bz2.enc", fileArgument.value.absolutePath)
     }
 
 }
