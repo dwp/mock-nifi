@@ -12,5 +12,4 @@ class MockNifiApplicationTests {
 	@Test
 	fun contextLoads() {
 	}
-
 }
