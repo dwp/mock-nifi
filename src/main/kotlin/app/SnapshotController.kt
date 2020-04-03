@@ -14,12 +14,12 @@ class SnapshotController(var writer: ISnapshotFileWriter) {
     @PostMapping("/collections")
     fun collection(dataStream: InputStream,
                    @RequestHeader("filename") fileName: String,
-                   @RequestHeader("collection") collection: String): String {
+                   @RequestHeader("topic") topic: String): String {
 
-        val parentDirectory = File(outputDirectory, collection)
+        val parentDirectory = File(outputDirectory, topic)
         makeParent(parentDirectory)
         val outputFile = File(parentDirectory, fileName)
-        logger.info("Sending file '$fileName' with collection '$collection' to '$outputFile'")
+        logger.info("Sending file '$fileName' with collection '$topic' to '$outputFile'")
 
         writer.writeFile(dataStream, outputFile)
         logger.info("Finished sending '$outputFile'")
