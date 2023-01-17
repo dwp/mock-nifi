@@ -76,7 +76,8 @@ jobs:
           sed -i -e "s/version = \"0.0.0\"/version = \"$VERSION\"/" gradle.properties
           mkdir artifacts
           gradle build --stacktrace
-          cp build/libs/mock-nifi*.jar artifacts/
+          cp build/libs/mock-nifi-*.jar artifacts/
+          ls artifacts
 
       
       - name: Create Release
