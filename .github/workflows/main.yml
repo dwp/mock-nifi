@@ -78,7 +78,6 @@ jobs:
           gradle build --stacktrace
           cp build/libs/mock-nifi-*.jar artifacts/
           ls artifacts
-
       
       - name: Create Release
         id: create_release
