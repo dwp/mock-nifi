@@ -8,6 +8,7 @@ plugins {
 }
 
 group = "mock-nifi"
+version = "0.0.0"
 
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
