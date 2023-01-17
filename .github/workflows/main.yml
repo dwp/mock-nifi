@@ -73,7 +73,7 @@ jobs:
           [  -z "$LATEST_VERSION" ] && LATEST_VERSION="0.0.0"
           VERSION=$(echo $LATEST_VERSION | awk -F. '{$NF = $NF + 1;} 1' | sed 's/ /./g')
           VERSION_NUMBER=$(echo $VERSION | sed 's/^v\(.*\)$/\1/')
-          sed -i -e "s/version = \"0.0.0\"/version = \"$VERSION\"/" gradle.properties
+          sed -i -e "s/version = \"0.0.0\"/version = \"$VERSION\"/" build.gradle.kts
           mkdir artifacts
           gradle build --stacktrace
           cp build/libs/mock-nifi-*.jar artifacts/
