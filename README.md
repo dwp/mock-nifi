@@ -1,3 +1,5 @@
+# DO NOT USE THIS REPO - MIGRATED TO GITLAB
+
 # Mock-nifi
 
 An https endpoint to which data can be posted.
